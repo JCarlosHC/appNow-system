@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title - @Parameters.ProjectName</title>
+    <meta name="description" content="@ViewBag.Description" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="~/Assets/images/favicon.ico" />
+    <link href="~/Assets/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Assets/css/bootstrap-theme.min.css" rel="stylesheet" />    
+    <link href="~/Assets/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Assets/css/style.css" rel="stylesheet" />
+    <link href="~/Assets/css/Footer-with-social-icons.css" rel="stylesheet" />
+
+    @RenderSection("header", required: false)
+</head>
+<body>
+    <div id="app">
+        @Html.Partial("_Menu")
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+
+        <footer id="myFooter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3 myCols">
+                        <h5>Get started</h5>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Sign up</a></li>
+                            <li><a href="#">Downloads</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3 myCols">
+                        <h5>About us</h5>
+                        <ul>
+                            <li><a href="#">Company Information</a></li>
+                            <li><a href="#">Contact us</a></li>
+                            <li><a href="#">Reviews</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3 myCols">
+                        <h5>Support</h5>
+                        <ul>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Help desk</a></li>
+                            <li><a href="#">Forums</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3 myCols">
+                        <h5>Legal</h5>
+                        <ul>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Terms of Use</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="social-networks">
+                <a href="https://github.com/JCarlosHC" class="github" target="_blank"><i class="fa fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/hc-juan-carlos/" class="linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
+                <a href="#" class="skype"><i class="fa fa-skype"></i></a>
+                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                <a href="https://www.facebook.com/juan.hernandez.108" class="facebook" target="_blank"><i class="fa fa-facebook-official"></i></a>
+                <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+            </div>
+            <div class="footer-copyright">
+                <p> &copy; @DateTime.Now.Year - <b>@Parameters.ProjectName</b> @Parameters.ProjectVersion powered by 
+                <b>Juan Carlos Hernández Castro</b>
+                </p>
+            </div>
+        </footer>
+       
+    </div>
+
+    <!-- App Variable Project -->
+    <script>
+        var App = {
+            helpers: {
+                url: {
+                    base () {
+                        return '@Url.Content("~")';
+                    },
+                    redirect (url) {
+                        window.location.href = App.helpers.url.base() + url;
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- jQuery & Boostrap -->
+    <script src="~/Assets/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="~/Assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/Assets/bower_components/jquery.form.min/index.js"></script>
+    <script src="~/Assets/js/jquery.anexgrid.min.js"></script>
+
+    <!-- Application Js -->
+    <script src="~/Assets/js/enums.js"></script>
+    <script src="~/Assets/js/application.js"></script>
+
+    <!-- Vue Global Component -->
+    <script src="~/Assets/vue_components/dist/global.components.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
